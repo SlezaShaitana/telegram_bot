@@ -1,0 +1,21 @@
+telegram:
+  bot:
+#    не вписывайте данные, так как можете отправить в публичный репозиторий
+#    используйте переменные среды для установки значений
+    username: ${BOT_NAME}
+    token: ${BOT_TOKEN}
+    notify:
+      delay:
+        value: 10
+        unit: MINUTES
+
+binance:
+  api:
+    getPrice: https://api.binance.com/api/v3/avgPrice?symbol=BTCUSDT
+
+db:
+  driver:
+    name: org.postgresql.Driver
+  url: jdbc:postgresql://localhost:5432/db
+  user: root
+  password: root
