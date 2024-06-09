@@ -16,7 +16,6 @@ public class CryptoBot extends TelegramLongPollingCommandBot {
 
     private final String botUsername;
 
-
     public CryptoBot(
             @Value("${telegram.bot.token}") String botToken,
             @Value("${telegram.bot.username}") String botUsername,

@@ -8,9 +8,9 @@ plugins {
 
 ext {
 	telegrambotsVersion = '6.8.0'
-	logbackVersion = '1.4.8'
+	logbackVersion = '1.5.6'
 	jaxbApiVersion = '2.3.1'
-	postgresqlDriverVersion = '42.6.0'
+	postgresqlDriverVersion = '42.7.3'
 	springOrmVersion = '6.0.13'
 }
 
@@ -40,10 +40,9 @@ dependencies {
 	implementation group: 'org.postgresql', name: 'postgresql', version: postgresqlDriverVersion
 	implementation group: 'org.springframework', name: 'spring-orm', version: springOrmVersion
 
-
-
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 }
 
 tasks.named('test') {
