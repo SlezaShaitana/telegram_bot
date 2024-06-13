@@ -1,5 +1,7 @@
 package com.skillbox.cryptobot.bot.command;
 
+import com.skillbox.cryptobot.entity.Subscribers;
+import com.skillbox.cryptobot.repository.SubscribesRepository;
 import com.skillbox.cryptobot.utils.TextUtil;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -13,6 +15,7 @@ import org.telegram.telegrambots.meta.bots.AbsSender;
 @Slf4j
 @AllArgsConstructor
 public class GetSubscriptionCommand implements IBotCommand {
+    private final SubscribesRepository subscribesRepository;
 
     @Override
     public String getCommandIdentifier() {
@@ -26,12 +29,16 @@ public class GetSubscriptionCommand implements IBotCommand {
 
     @Override
     public void processMessage(AbsSender absSender, Message message, String[] arguments) {
-
-        //этот код я пишу метод заполнила
+        Subscribers user = subscribesRepository.findByChatId(message.getChatId());
         SendMessage answer = new SendMessage();
         answer.setChatId(message.getChatId());
         try {
-            answer.setText("Вы подписаны на стоимость биткоина " + " ");
+            if (user.getPrice() != null) {
+                String subscribedToPrice = TextUtil.toString(user.getPrice());
+                answer.setText("Вы подписаны на стоимость биткоина " + subscribedToPrice);
+            } else {
+                answer.setText("Активные подписки отсутствуют");
+            }
             absSender.execute(answer);
         } catch (Exception e) {
             log.error("Ошибка возникла /get_subscription методе", e);

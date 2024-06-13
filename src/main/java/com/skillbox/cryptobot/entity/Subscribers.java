@@ -15,10 +15,10 @@ public class Subscribers {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
-    @Column(name = "UUID", nullable = false) //userId
-    private UUID userId;
+    @Column(name = "UUID", nullable = false)
+    private UUID UUID;
     @Column(name = "user_id", nullable = false)
-    private Long telegramId;
+    private Long chatId;
     @Column(name = "price", nullable = true)
     private Double price;
 

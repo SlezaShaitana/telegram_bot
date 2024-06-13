@@ -8,6 +8,7 @@ telegram:
       delay:
         value: 10
         unit: MINUTES
+        price-check-interval: 120000
 
 binance:
   api:

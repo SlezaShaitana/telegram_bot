@@ -5,12 +5,14 @@ import com.skillbox.cryptobot.bot.CryptoBot;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
 @Configuration
 @Slf4j
+@EnableScheduling
 public class TelegramBotConfiguration {
     @Bean
     TelegramBotsApi telegramBotsApi(CryptoBot cryptoBot) {
